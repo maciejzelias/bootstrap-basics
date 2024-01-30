@@ -1,0 +1,51 @@
+// $theme-colors: (
+//   "primary":    $primary,
+//   "secondary":  $secondary,
+//   "success":    $success,
+//   "info":       $info,
+//   "warning":    $warning,
+//   "danger":     $danger,
+//   "light":      $light,
+//   "dark":       $dark
+// ) !default;
+
+$primary: black;
+
+$custom-colors: (
+  'custom-color': #900,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Remove :
+// do not remove primary,success and danger - they are used in bttons form etc
+// Required
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+@import '../node_modules/bootstrap/scss/root';
+
+$theme-colors: map-remove($theme-colors, 'info', 'light', 'dark');
+
+// colors
+
+// lighten or darken colors
+
+// Tint a color: mix a color with white
+// @function tint-color($color, $weight) {
+
+// Shade a color: mix a color with black
+//   @function shade-color($color, $weight) {
+
+// Shade the color if the weight is positive, else tint it
+//   @function shift-color($color, $weight)
+
+// f.e. $blue-100: tint-color($blue, 80%)
+
+// Add / Substrsact functions
+
+.element {
+  // Output the same calc(.25rem - 1px) as above
+  border-radius: subtract($border-radius, $border-width);
+}
